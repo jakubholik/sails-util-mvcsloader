@@ -30,14 +30,11 @@
     "config",
     "policies"
   ],
-  "author": "Leeroy Brun, Aumard Jimmy",
+  "author": "Albert Peiro",
   "contributors": [
     {
-      "name": "Leeroy Brun",
-      "email": "leeroy.brun@gmail.com"
-    },
-    {
-      "name": "Aumard Jimmy"
+      "name": "Albert Peiro",
+      "email": "acordonet@gmail.com"
     }
   ],
   "license": "MIT",

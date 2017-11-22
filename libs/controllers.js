@@ -32,7 +32,7 @@ module.exports = function (sails, dir, cb) {
             // Loop through each controllers and register them
             _.each(modules, function (controller, controllerId) {
                 // If controller does not exists yet, create empty object
-                sails.hooks.controllers.middleware[controllerId] = sails.hooks.controllers.middleware[controllerId] || {};
+                sails.controllers.middleware[controllerId] = sails.controllers.middleware[controllerId] || {};
 
                 // Register this controller's actions
                 _.each(controller, function (action, actionId) {
@@ -41,7 +41,7 @@ module.exports = function (sails, dir, cb) {
 
                     // If the action is set to `false`, explicitly disable (remove) it
                     if (action === false) {
-                        delete sails.hooks.controllers.middleware[controllerId][actionId];
+                        delete sails.controllers.middleware[controllerId][actionId];
                         return;
                     }
 
@@ -52,9 +52,9 @@ module.exports = function (sails, dir, cb) {
 
                     // Register controller's action on the main "controllers" hook
                     action._middlewareType = 'ACTION: ' + controllerId + '/' + actionId;
-                    sails.hooks.controllers.middleware[controllerId][actionId] = action;
-                    sails.hooks.controllers.explicitActions[controllerId] = sails.hooks.controllers.explicitActions[controllerId] || {};
-                    sails.hooks.controllers.explicitActions[controllerId][actionId] = true;
+                    sails.controllers.middleware[controllerId][actionId] = action;
+                    sails.controllers.explicitActions[controllerId] = sails.controllers.explicitActions[controllerId] || {};
+                    sails.controllers.explicitActions[controllerId][actionId] = true;
                 });
             });
 
