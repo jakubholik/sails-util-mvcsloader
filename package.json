@@ -30,11 +30,11 @@
     "config",
     "policies"
   ],
-  "author": "Albert Peiro",
+  "author": "Jakub Holík",
   "contributors": [
     {
-      "name": "Albert Peiro",
-      "email": "acordonet@gmail.com"
+      "name": "Jakub Holík",
+      "email": "jakubholik@gmail.com"
     }
   ],
   "license": "MIT",
