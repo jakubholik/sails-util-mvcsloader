@@ -24,6 +24,7 @@
     "hook-services",
     "hook-config",
     "hook-policies",
+    "hook-views",
     "models",
     "controllers",
     "services",
