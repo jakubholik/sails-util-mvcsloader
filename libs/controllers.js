@@ -28,7 +28,7 @@ module.exports = function (sails, dir, cb) {
         function registerControllers(modules, next) {
             // Extends sails.controllers with new ones
             sails.controllers = _.merge(modules || {}, sails.controllers || {});
-
+            
             // Loop through each controllers and register them
             _.each(modules, function (controller, controllerId) {
                 // If controller does not exists yet, create empty object

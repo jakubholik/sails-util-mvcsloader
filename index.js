@@ -28,7 +28,11 @@ module.exports = function (sails) {
         injectServices: function (dir, cb) {
             require(__dirname + '/libs/services')(sails, dir, cb);
         },
-	
+		
+	    copyAssets: function(opts) {
+		    require(__dirname + '/libs/assets')(sails, opts)
+	    },
+	    
 	    copyViews: function(dir) {
 		    require(__dirname + '/libs/views')(sails, dir)
 	    },

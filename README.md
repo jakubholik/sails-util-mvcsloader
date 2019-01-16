@@ -65,9 +65,20 @@ Or like this if you want to load from specific directories:
 
 Optionally you are able to copy default views going with the content of your hook.
 Path to the views directory is required.
-If there is existing files in core app with the same name, this util will not overwrite them.
+Command ignores already existing files within destination directory.
 
     loader.copyViews(__dirname + '/views');
+
+### Copying assets
+
+Copying assets is also available. Key in option object represents directory in target assets folder.
+Its value is the source inside your hook structure.
+
+    loader.copyAssets({
+        js: __dirname + '/assets/js',
+        images: __dirname + '/assets/images',
+        styles: __dirname + '/assets/css',
+    })
 
 
 ### Loading models / controllers / services
@@ -155,7 +166,3 @@ Here is a complete example. It's the index.js file of a Sails hook.
 - [Leeroy Brun](https://github.com/leeroybrun)
 - [Jimmy Aumard](https://github.com/jaumard)
 - [Jakub Holík](https://github.com/jakubholik)
-
-### TODO
-- Add support for loading :
-    - Assets
