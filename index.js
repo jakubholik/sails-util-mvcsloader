@@ -28,6 +28,10 @@ module.exports = function (sails) {
         injectServices: function (dir, cb) {
             require(__dirname + '/libs/services')(sails, dir, cb);
         },
+	
+	    copyViews: function(dir) {
+		    require(__dirname + '/libs/views')(sails, dir)
+	    },
 
         // Inject config and policies synchronously into the Sails app
         configure: function (dir) {

@@ -1,14 +1,14 @@
 {
   "name": "sails-util-mvcsloader",
-  "version": "0.4.0",
-  "description": "Load models, controllers, services, policies and config from specified directories and inject them into the main Sails app.",
+  "version": "0.5.0",
+  "description": "Load models, controllers, services, policies, config and views from specified directories and inject them into the main Sails app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leeroybrun/sails-util-mvcsloader"
+    "url": "https://github.com/jakubholik/sails-util-mvcsloader"
   },
   "keywords": [
     "sails hook loader",
@@ -38,14 +38,12 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leeroybrun/sails-util-mvcsloader/issues"
-  },
-  "homepage": "https://github.com/leeroybrun/sails-util-mvcsloader",
+  "homepage": "https://github.com/jakubholik/sails-util-mvcsloader",
   "dependencies": {
     "async": "^0.9.0",
     "include-all": "^0.1.6",
     "lodash": "^3.5.0",
+    "path": "^0.12.7",
     "sails-build-dictionary": "^0.10.1",
     "sails-util": "^0.10.6"
   }

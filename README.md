@@ -1,6 +1,5 @@
 # sails-util-mvcsloader
 
-[![NPM](https://nodei.co/npm/sails-util-mvcsloader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sails-util-mvcsloader/)
 
 Load models, controllers, services, policies and config from specified directories and inject them into the main Sails app.
 
@@ -62,6 +61,14 @@ Or like this if you want to load from specific directories:
         config: __dirname + '/config' // Path to the config to load
     });
 
+### Copying views
+
+Optionally you are able to copy default views going with the content of your hook.
+Path to the views directory is required.
+If there is existing files in core app with the same name, this util will not overwrite them.
+
+    loader.copyViews(__dirname + '/views');
+
 
 ### Loading models / controllers / services
 
@@ -112,6 +119,11 @@ Here is a complete example. It's the index.js file of a Sails hook.
         return {
             initialize: function (next) {
                 /*
+                    Copy default views
+                */
+                loader.copyViews(__dirname + '/views');
+
+                /*
                     Load models under ./api/models
                     Load controllers under ./api/controllers
                     Load services under ./api/services
@@ -135,27 +147,15 @@ Here is a complete example. It's the index.js file of a Sails hook.
         };
     }
 
-
-## Used by
-[sails-hook-passport](https://github.com/jaumard/sails-hook-passport)
-
 ## Development
 
-### Contributing
-
-For now, we use 4 spaces instead of 2.  
-For the rest, please follow the [Felix's Node.js Style Guide](https://github.com/felixge/node-style-guide).
-
-We use [semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning) for the NPM package.
 
 ### Contributors
 
 - [Leeroy Brun](https://github.com/leeroybrun)
 - [Jimmy Aumard](https://github.com/jaumard)
+- [Jakub Holík](https://github.com/jakubholik)
 
 ### TODO
 - Add support for loading :
-    - Views
     - Assets
-- Add tests
-- Add Grunt for auto-JSHint & tests
