@@ -32,8 +32,7 @@ module.exports = function (sails, dir, cb) {
             // Loop through each controllers and register them
             _.each(modules, function (controller, controllerId) {
                 // If controller does not exists yet, create empty object
-                sails.controllers.middleware[controllerId] = sails.controllers.middleware[controllerId] || {};
-
+				
                 // Register this controller's actions
                 _.each(controller, function (action, actionId) {
                     // actionid is always lowercase
@@ -41,8 +40,12 @@ module.exports = function (sails, dir, cb) {
 
                     // If the action is set to `false`, explicitly disable (remove) it
                     if (action === false) {
-                        delete sails.controllers.middleware[controllerId][actionId];
+                        // delete sails.controllers[controllerId][actionId];
                         return;
+                    }
+                    
+                    if(actionId === "sails"){
+                    	return;
                     }
 
                     // Do not register string or boolean actions
@@ -51,13 +54,13 @@ module.exports = function (sails, dir, cb) {
                     }
 
                     // Register controller's action on the main "controllers" hook
-                    action._middlewareType = 'ACTION: ' + controllerId + '/' + actionId;
-                    sails.controllers.middleware[controllerId][actionId] = action;
-                    sails.controllers.explicitActions[controllerId] = sails.controllers.explicitActions[controllerId] || {};
-                    sails.controllers.explicitActions[controllerId][actionId] = true;
+                    // Action named by rule CONTROLLERNAME_ACTIONNAME because CONTROLLERNAME.ACTIONNAME
+                    // is conflicting with Sails Application controllers and our actions are revoked
+	                console.log("Registering action: " + controllerId + "controller" + "_" + actionId)
+	                sails.registerAction(action, controllerId + "controller" + "_" + actionId)
                 });
             });
-
+			
             return next();
         }], function (err) {
         cb(err);
